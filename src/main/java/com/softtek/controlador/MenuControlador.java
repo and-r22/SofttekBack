@@ -27,13 +27,11 @@ public class MenuControlador {
     @Autowired
     private IMenuServicio service;
     
-    List<MenuDTO> menusDTO;
-    
     @GetMapping
     public ResponseEntity<List<MenuDTO>> listar() throws Exception {
         List<Menu> menus = new ArrayList<>();
         menus = service.listar();
-        menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDTO>>() {}.getType());
+        List<MenuDTO> menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDTO>>() {}.getType());
         return new ResponseEntity<>(menusDTO, HttpStatus.OK);
     }
     
@@ -46,6 +44,7 @@ public class MenuControlador {
         // menusDTO modelMapper.map (menus, new TypeToken<List<MenuDTO>>()
         // ().getType());
         menus = service.listarMenuPorUsuario(nombre);
+        List<MenuDTO> menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDTO>>() {}.getType());
         return new ResponseEntity<>(menusDTO, HttpStatus.OK);
     }
 }
