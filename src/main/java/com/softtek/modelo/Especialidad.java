@@ -15,7 +15,7 @@ public class Especialidad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEspecialidad;
 	
-	@Column(name = "descripcion", nullable = false, length = 50)
+	@Column(name = "descripcion", nullable = false, length = 150)
 	private String descripcion;
 	
 	@Column(name = "nombre", nullable = false, length = 50)
